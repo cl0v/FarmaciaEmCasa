@@ -1,0 +1,47 @@
+{
+  "name": "Ibuprofeno",
+  "description": "bla bla bla",
+  "prescription": ["Dor de cabeça", "Febre"],
+  "original": { "id": "321312321", "name": "Ibuprofeno" },
+  "generics": [{ "id": "idDoIB", "name": "Ibuprionato de potássio" }],
+  "components": [
+    { "name": "cloridrato", "amount": 4, "unit": "mg" },
+    { "name": "paracetamol", "amount": 400, "unit": "mg" }
+  ],
+  "price": {
+    "units": [
+      {
+        "unit": "mg",
+        "values": [1000, 500]
+      },
+      {
+        "unit": "cap",
+        "values": [30, 60, 90]
+      },
+      {
+        "unit": "ml",
+        "values": [60, 90]
+      }
+    ],
+    "formulas": ["mg x cap x real"],
+    "values": [
+      {
+        "unit1": "mg",
+        "value1": 500,
+        "unit2": "cap",
+        "value2": 30,
+        "priceUnit": "real",
+        "price": 30.5,
+        "store" : "IDdaLoja"
+      },
+      {
+        "unit1": "mg",
+        "value1": 500,
+        "unit2": "cap",
+        "value2": 60,
+        "priceUnit": "real",
+        "price": 55.5
+      }
+    ]
+  }
+}

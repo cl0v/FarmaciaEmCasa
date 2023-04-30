@@ -1,0 +1,20 @@
+{
+  "_comment": "O id do doc é o mesmo que o $masterProductId",
+  "product": "$masterProductId",
+  "createdAt": "",
+  "updatedAt": "",
+  "deletedAt": "",
+  "priceFormulas": ["mg.cap.real"],
+  "prices": [
+    { "unit1": "mg", "value1": 100, "price": 35.5, "priceUnit": "real" },
+    {
+      "unit1": "mg",
+      "value1": 100,
+      "unit2": "comp",
+      "value2": 60,
+      "price": 35.5,
+      "priceUnit": "real"
+    },
+    { "unit1": "ml", "value1": 60, "price": 30.0, "priceUnit": "real" }
+  ]
+}

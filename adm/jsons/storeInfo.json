@@ -1,0 +1,11 @@
+{
+  "name": "Store Master",
+  "createdAt": "24/04/2023 - 02:33:22",
+  "deletedAt": null,
+  "updatedAt": "24/04/2023 - 02:33:22",
+  "locatedAt": {
+    "CEP": 39890000,
+    "street": "bla",
+    "city": "bla"
+  }
+}

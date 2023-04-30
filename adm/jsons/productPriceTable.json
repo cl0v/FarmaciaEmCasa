@@ -1,0 +1,35 @@
+{
+  "_comment": "O id do arquivo é o HASH do formato $CEP:$masterProductID",
+  "cep": "39890-*",
+  "product": "32131231321",
+  "values": [
+    {
+      "unit": "ml",
+      "amount": 1,
+      "values": [
+        {
+          "unit": "un",
+          "amount": 30,
+          "values": [
+            {
+              "unit": "real",
+              "amount": 30.0,
+              "store": "storeID"
+            }
+          ]
+        },
+        {
+          "unit": "un",
+          "amount": 60,
+          "values": [
+            {
+              "unit": "real",
+              "amount": 45.0,   
+              "store": "storeID"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

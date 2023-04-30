@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "996325350646",
+    "project_id": "farmacia-em-casa-60bd1",
+    "storage_bucket": "farmacia-em-casa-60bd1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996325350646:android:7442c852ec56a408e3a0d7",
+        "android_client_info": {
+          "package_name": "com.example.adm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996325350646-1tc0qko1i05navb7s9aocubjnit2p5tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtNP-B6RCdUnXwnchCgxKhQr2ZOQAMQ7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996325350646-1tc0qko1i05navb7s9aocubjnit2p5tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996325350646:android:bf8c3d50c461e534e3a0d7",
+        "android_client_info": {
+          "package_name": "com.example.farmacia_em_casa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996325350646-1tc0qko1i05navb7s9aocubjnit2p5tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtNP-B6RCdUnXwnchCgxKhQr2ZOQAMQ7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996325350646-1tc0qko1i05navb7s9aocubjnit2p5tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

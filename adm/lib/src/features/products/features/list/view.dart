@@ -15,17 +15,17 @@ class ProductListPage extends StatefulWidget {
 class _ProductListPageState extends State<ProductListPage> {
   final dataSource = FirestoreProductDataSourceImpl();
 
-  FetchProductListUseCase get fetchProductListUseCase =>
-      FetchProductListUseCaseImpl(dataSource);
+  late FetchProductListUseCase fetchProductListUseCase;
 
-  SearchProductByNameUseCase get searchProductByNameUseCase =>
-      SearchProductByNameUseCaseImpl(dataSource);
+  late SearchProductByNameUseCase searchProductByNameUseCase;
 
   List<Product>? products;
 
   @override
   void initState() {
     super.initState();
+    fetchProductListUseCase = FetchProductListUseCaseImpl(dataSource);
+    searchProductByNameUseCase = SearchProductByNameUseCaseImpl(dataSource);
     fetchProductListUseCase().then((value) {
       setState(() {
         products = value;

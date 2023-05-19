@@ -43,6 +43,7 @@ class FirestorAlgoliaeStoreDataSourceImpl implements StoresDataSource {
   @override
   Future<List<Store>> searchByName(String name) async {
     var query = algolia.instance.index(index).query(name);
+    
     query = query.facetFilter('isDeleted:false');
     var snap = await query.getObjects();
 

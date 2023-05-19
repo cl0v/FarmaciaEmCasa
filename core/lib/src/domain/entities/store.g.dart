@@ -12,13 +12,16 @@ Store _$StoreFromJson(Map<String, dynamic> json) => Store(
       address: (json['address'] as List<dynamic>)
           .map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
-      isDeleted: json['isDeleted'] as bool,
-      deliveryInfo: StoreDeliveryInfo.fromJson(
-          json['deliveryInfo'] as Map<String, dynamic>),
+      isDeleted: json['isDeleted'] as bool? ?? false,
+      deliveryInfo: json['deliveryInfo'] == null
+          ? const StoreDeliveryInfo()
+          : StoreDeliveryInfo.fromJson(
+              json['deliveryInfo'] as Map<String, dynamic>),
       phone: json['phone'] as String,
       isActive: json['isActive'] as bool,
       operationInfo: StoreOperationTimeInfo.fromJson(
           json['operationInfo'] as Map<String, dynamic>),
+      observation: json['observation'] as String? ?? "",
     );
 
 Map<String, dynamic> _$StoreToJson(Store instance) => <String, dynamic>{
@@ -29,17 +32,20 @@ Map<String, dynamic> _$StoreToJson(Store instance) => <String, dynamic>{
       'operationInfo': instance.operationInfo,
       'phone': instance.phone,
       'isDeleted': instance.isDeleted,
+      'observation': instance.observation,
       'isActive': instance.isActive,
     };
 
 StoreDeliveryInfo _$StoreDeliveryInfoFromJson(Map<String, dynamic> json) =>
     StoreDeliveryInfo(
-      value: (json['value'] as num).toDouble(),
+      value: (json['value'] as num?)?.toDouble(),
+      needed: json['needed'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$StoreDeliveryInfoToJson(StoreDeliveryInfo instance) =>
     <String, dynamic>{
       'value': instance.value,
+      'needed': instance.needed,
     };
 
 StoreOperationTimeInfo _$StoreOperationTimeInfoFromJson(
@@ -58,18 +64,14 @@ Map<String, dynamic> _$StoreOperationTimeInfoToJson(
 
 StoreOperationDay _$StoreOperationDayFromJson(Map<String, dynamic> json) =>
     StoreOperationDay(
-      day: json['day'] as int,
-      openHour: json['openHour'] as int,
-      openMinute: json['openMinute'] as int,
-      closeHour: json['closeHour'] as int,
-      closeMinute: json['closeMinute'] as int,
+      day: json['day'] as String,
+      open: json['open'] as String? ?? "07:00",
+      close: json['close'] as String? ?? "20:00",
     );
 
 Map<String, dynamic> _$StoreOperationDayToJson(StoreOperationDay instance) =>
     <String, dynamic>{
       'day': instance.day,
-      'openHour': instance.openHour,
-      'openMinute': instance.openMinute,
-      'closeHour': instance.closeHour,
-      'closeMinute': instance.closeMinute,
+      'open': instance.open,
+      'close': instance.close,
     };

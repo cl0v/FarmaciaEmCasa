@@ -62,27 +62,35 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save();
-                      if (_email == 'adm' && _password == '#DSDA(SJ#D(J!(JSA())))') {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const AdmDashboardPage(),
-                            ));
-                      }
-                    }
-                  },
-                  child: Text('Entrar'),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: ElevatedButton(
+                    onPressed: validate,
+                    child: const SizedBox(
+                      width: double.infinity,
+                      child: Center(
+                        child: Text('Cadastrar'),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+              
             ],
           ),
         ),
       ),
     );
+  }
+
+  void validate() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      if (_email == 'adm' && _password == '#DSDA(SJ#D(J!(JSA())))') {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AdmDashboardPage(),
+            ));
+      }
+    }
   }
 }

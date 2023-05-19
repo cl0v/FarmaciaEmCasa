@@ -4,6 +4,16 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'store.g.dart';
 
+const weekDays = [
+  "Sab",
+  "Dom",
+  "Seg",
+  "Ter",
+  "Qua",
+  "Qui",
+  "Sex",
+];
+
 @JsonSerializable()
 class Store {
   late final String? id;
@@ -14,6 +24,9 @@ class Store {
   final String phone;
   final bool isDeleted;
 
+  /// Qualquer nota importante que deve ser tomada.
+  final String observation;
+
   /// Situação cadastral da loja, [false] caso esteja desativada.
   final bool isActive;
 
@@ -21,11 +34,12 @@ class Store {
     this.id,
     required this.name,
     required this.address,
-    required this.isDeleted,
-    required this.deliveryInfo,
+    this.isDeleted = false,
+    this.deliveryInfo = const StoreDeliveryInfo(),
     required this.phone,
     required this.isActive,
     required this.operationInfo,
+    this.observation = "",
   });
 
   factory Store.fromJson(Map<String, dynamic> json) => _$StoreFromJson(json);
@@ -40,10 +54,14 @@ enum StoreDeliveryRules {
 
 @JsonSerializable()
 class StoreDeliveryInfo {
-  final double value;
+  final double? value;
 
-  StoreDeliveryInfo({
-    required this.value,
+  /// Quando é necessário fornecer motoboy [true]
+  final bool needed;
+
+  const StoreDeliveryInfo({
+    this.value,
+    this.needed = false,
   });
   // final StoreDeliveryRules rules;
 
@@ -58,32 +76,32 @@ class StoreOperationTimeInfo {
 
   StoreOperationTimeInfo({
     required this.days,
-  });
+  }) : assert(days.isNotEmpty);
 
   bool get isOpen {
     final day = days.firstWhere((day) => DateTime.now().weekday == day.day);
-    return (day.openHour < DateTime.now().hour) &&
-        (day.closeHour < DateTime.now().hour);
+
+    final openHour = int.parse(day.open.split(":")[0]);
+    final closeHour = int.parse(day.close.split(":")[0]);
+    return (openHour < DateTime.now().hour) &&
+        (closeHour < DateTime.now().hour);
   }
 
-  factory StoreOperationTimeInfo.fromJson(Map<String, dynamic> json) => _$StoreOperationTimeInfoFromJson(json);
+  factory StoreOperationTimeInfo.fromJson(Map<String, dynamic> json) =>
+      _$StoreOperationTimeInfoFromJson(json);
   Map<String, dynamic> toJson() => _$StoreOperationTimeInfoToJson(this);
 }
 
 @JsonSerializable()
 class StoreOperationDay {
-  final int day;
-  final int openHour;
-  final int openMinute;
-  final int closeHour;
-  final int closeMinute;
+  String day;
+  String open;
+  String close;
 
   StoreOperationDay({
     required this.day,
-    required this.openHour,
-    required this.openMinute,
-    required this.closeHour,
-    required this.closeMinute,
+    this.open = "07:00",
+    this.close = "20:00",
   });
 
   factory StoreOperationDay.fromJson(Map<String, dynamic> json) =>

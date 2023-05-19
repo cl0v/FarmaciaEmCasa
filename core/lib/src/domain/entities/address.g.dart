@@ -7,13 +7,13 @@ part of 'address.dart';
 // **************************************************************************
 
 Address _$AddressFromJson(Map<String, dynamic> json) => Address(
-      zipCode: json['zip_code'] as String,
       number: json['number'] as String,
       street: json['street'] as String,
-      city: json['city'] as String? ?? "Joaíma",
-      state: json['state'] as String? ?? "MG",
       district: json['district'] as String,
       complement: json['complement'] as String,
+      city: json['city'] as String? ?? "Joaíma",
+      state: json['state'] as String? ?? "MG",
+      zipCode: json['zip_code'] as String? ?? "39890-000",
     );
 
 Map<String, dynamic> _$AddressToJson(Address instance) => <String, dynamic>{

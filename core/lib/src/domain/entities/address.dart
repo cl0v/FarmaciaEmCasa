@@ -27,13 +27,13 @@ class Address {
   String complement;
 
   Address({
-    required this.zipCode,
     required this.number,
     required this.street,
-    this.city = "Joaíma",
-    this.state = "MG",
     required this.district,
     required this.complement,
+    this.city = "Joaíma",
+    this.state = "MG",
+    this.zipCode = "39890-000",
   });
 
   factory Address.empty() {
